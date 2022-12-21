@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="printer" class="com.mono.di.ui.ColorPrinter"></bean>
+
+  <bean id="personInfo" class="com.mono.di.entity.Personinfo">
+    <property name="printer" ref="printer"/>
+    <property name="names">
+      <list>
+        <value>Spring</value>
+        <value>Ioc</value>
+        <value>DI</value>
+      </list>
+    </property>
+
+    <property name="persons">
+      <list>
+        <bean class="com.mono.di.entity.Person">
+          <property name="age" value="30"/>
+          <property name="name" value="power"/>
+        </bean>
+        <bean class="com.mono.di.entity.Person">
+          <property name="age" value="50"/>
+          <property name="name" value="abcd"/>
+        </bean>
+        <bean class="com.mono.di.entity.Person">
+          <property name="age" value="24"/>
+          <property name="name" value="next"/>
+        </bean>
+      </list>
+    </property>
+
+    <property name="ages">
+      <map>
+        <entry key="Kim" value="10"/>
+        <entry key="Lee" value="20"/>
+        <entry key="Ahn" value="30"/>
+      </map>
+    </property>
+
+    <property name="emails">
+      <set>
+        <value>kor@naver.com</value>
+        <value>eng@naver.com</value>
+        <value>eng@naver.com</value>
+      </set>
+    </property>
+
+  </bean>
+
+
+  <bean id="hello" class="com.mono.di.entity.Hello">
+    <property name="printer" ref="printer" />
+  </bean>
+
+</beans>
+
+
